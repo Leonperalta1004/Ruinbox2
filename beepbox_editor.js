@@ -104,6 +104,7 @@ var beepbox = (function (exports) {
         { name: "double saw", expression: 0.5, samples: centerWave([0.0, -0.2, -0.4, -0.6, -0.8, -1.0, 1.0, -0.8, -0.6, -0.4, -0.2, 1.0, 0.8, 0.6, 0.4, 0.2]) },
         { name: "double pulse", expression: 0.4, samples: centerWave([1.0, 1.0, 1.0, 1.0, 1.0, -1.0, -1.0, -1.0, 1.0, 1.0, 1.0, 1.0, -1.0, -1.0, -1.0, -1.0]) },
         { name: "spiky", expression: 0.4, samples: centerWave([1.0, -1.0, 1.0, -1.0, 1.0, 0.0]) },
+	    { name: "silly wave", expression: 0.4, samples: centerWave([1.0, 0.5, 0.4, 0.2, 1.0, 1.0]) },
     ]);
     Config.chipNoises = toNameMap([
         { name: "retro", expression: 0.25, basePitch: 69, pitchFilterMult: 1024.0, isSoft: false, samples: null },
@@ -151,6 +152,7 @@ var beepbox = (function (exports) {
         { name: "octave", voices: 2, spread: 6.0, offset: 6.0, expression: 0.8, sign: 1.0 },
         { name: "bowed", voices: 2, spread: 0.02, offset: 0.0, expression: 1.0, sign: -1.0 },
         { name: "piano", voices: 2, spread: 0.01, offset: 0.0, expression: 1.0, sign: 0.7 },
+	    { name: "this sounds so bad", voices: 2, spread: 17, offset: 0.5 expression: 1.0, sign: -3 },
     ]);
     Config.effectNames = ["reverb", "chorus", "panning", "distortion", "bitcrusher", "note filter", "echo", "pitch shift", "detune", "vibrato", "transition type", "chord type"];
     Config.effectOrder = [10, 11, 7, 8, 9, 5, 3, 4, 2, 1, 6, 0];
@@ -171,7 +173,7 @@ var beepbox = (function (exports) {
         { name: "strum", customInterval: false, arpeggiates: false, strumParts: 1, singleTone: false },
         { name: "arpeggio", customInterval: false, arpeggiates: true, strumParts: 0, singleTone: true },
         { name: "custom interval", customInterval: true, arpeggiates: false, strumParts: 0, singleTone: true },
-    ]);
+    ]); 
     Config.maxChordSize = 4;
     Config.operatorCount = 4;
     Config.maxPitchOrOperatorCount = Math.max(Config.maxChordSize, Config.operatorCount);
@@ -208,6 +210,7 @@ var beepbox = (function (exports) {
         { name: "13×", mult: 13.0, hzOffset: 0.0, amplitudeSign: 1.0 },
         { name: "16×", mult: 16.0, hzOffset: 0.0, amplitudeSign: 1.0 },
         { name: "20×", mult: 20.0, hzOffset: 0.0, amplitudeSign: 1.0 },
+		{ name: "100×", mult: 100.0, hzOffset: 0.0, amplitudeSign: 1.0 },
     ]);
     Config.envelopes = toNameMap([
         { name: "none", type: 1, speed: 0.0 },
